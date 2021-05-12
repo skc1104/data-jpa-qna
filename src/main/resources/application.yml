@@ -1,0 +1,21 @@
+spring:
+  output.ansi.enabled: always
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/datajpa?characterEncoding=utf8
+    username: datajpa
+    password: datajpa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create   # one of none, create, create-drop, update, and validate
+    properties:
+      hibernate:
+        #show_sql: true    # 이 부분 대신에 아래 로그 남기는 것으로 하는 것도 추천
+        format_sql: true   # query가 한 줄이 아닌 여러 줄로 이쁘게 보이게
+
+logging.level:
+  org.hibernate.SQL: debug    # query를 console이 아닌 log file에 남긴다 (어느 파일??)
+  org.hibernate.type: trace   # Binding된 parameter까지 최종값으로 보이게 한다
+
